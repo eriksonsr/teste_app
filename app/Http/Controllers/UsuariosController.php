@@ -33,5 +33,15 @@ class UsuariosController extends Controller
 		} catch (Exception $e) {
 			return json_encode(['status' => 'Erro', 'msg' => 'Ocorreu um erro ao cadastrar usuário.']);
 		}
+	}	
+
+	public function Excluir($id)
+	{
+		try {
+			Usuarios::find($id)->delete();
+			return json_encode(['status' => 'Sucesso', 'msg' => 'Usuário excluído com sucesso!']);
+		} catch (Exception $e) {
+			return json_encode(['status' => 'Erro', 'msg' => 'Ocorreu um erro ao excluir usuário.']);
+		}
 	}
 }
