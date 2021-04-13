@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('listar', 'UsuariosController@ListarJson');
+Route::post('cadastrar', 'UsuariosController@cadastrar');
