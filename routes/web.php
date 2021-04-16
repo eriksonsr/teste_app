@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'usuarios'], function(){
+	Route::get('/', 'UsuariosController@Listar');
+	Route::get('/listar', 'UsuariosController@Listar')->name('usuarios.listar');
+});

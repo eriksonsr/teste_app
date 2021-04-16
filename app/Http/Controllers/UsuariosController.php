@@ -44,4 +44,9 @@ class UsuariosController extends Controller
 			return json_encode(['status' => 'Erro', 'msg' => 'Ocorreu um erro ao excluir usuário.']);
 		}
 	}
+
+	public function Listar()
+	{
+		return view("usuarios.listar");
+	}
 }
