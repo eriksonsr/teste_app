@@ -16,7 +16,7 @@ $(document).ready(function(){
 							</a>
 						</td>
 						<td>
-							<button class="btn btn-danger btn-sm text-center" target="_blank">
+							<button class="btn btn-danger btn-sm text-center" onclick="Excluir(${v.id}, this, '${v.nome}');">
 								<i class="fa fa-remove"></i>
 							</button>
 						</td>
@@ -26,3 +26,19 @@ $(document).ready(function(){
 		}
 	});
 });
+
+function Excluir(id, el, usuario){
+	if (confirm("Deseja realmente excluir o usuário " + usuario + "?")){
+		$.ajax({
+			url: 'http://' + location.host + '/api/excluir/' + id,
+			type: "DELETE",
+			dataType: "json",
+			success: function(data){
+				if (data.status == 'Sucesso'){
+					$(el).parent().parent().remove();
+				}
+				ExibeToastAviso(data.msg, 'Status')
+			}
+		});
+	}
+}
