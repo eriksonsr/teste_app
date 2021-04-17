@@ -17,6 +17,7 @@
     <!-- Scripts -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -49,5 +50,6 @@
             @yield('content')
         </main>
     </div>
+    @include('toast_aviso')
 </body>
 </html>
